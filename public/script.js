@@ -26,6 +26,13 @@ document.getElementById('analyzeForm').addEventListener('submit', async (e) => {
             <p><strong>HTTPS:</strong> ${data.httpsInfo.usesHTTPS ? 'Yes' : 'No'}</p>
             <p><strong>WHOIS Info:</strong></p>
             <pre>${data.whoisInfo || 'N/A'}</pre>
+            <p><strong>Vulnerabilities:</strong></p>
+            <ul>
+                <li>FREAK Attack: ${data.vulnerabilities.freak ? 'Vulnerable' : 'Safe'}</li>
+                <li>LOGJAM Attack: ${data.vulnerabilities.logjam ? 'Vulnerable' : 'Safe'}</li>
+                <li>POODLE Attack: ${data.vulnerabilities.poodle ? 'Vulnerable' : 'Safe'}</li>
+                <li>MITM Attack: ${data.vulnerabilities.mitm ? 'Vulnerable' : 'Safe'}</li>
+            </ul>
         `;
     } catch (error) {
         resultDiv.innerHTML = '<p>Error analyzing the domain. Please try again.</p>';
